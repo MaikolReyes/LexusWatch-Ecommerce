@@ -1,0 +1,43 @@
+.navbar{
+    height: 60px;
+}
+
+.logo{
+margin-top: 10px;
+}
+
+.navbar-nav{
+    gap: 20px;
+}
+
+.navbar-collapse{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link{
+    color: white;
+}
+
+.nav-link:hover{
+    color: aquamarine;
+}
+
+.navbar-brand{
+    color: white;
+}
+
+.card{
+    width: 12rem;
+    display: grid;
+    grid-template-columns: 1fr,1fr,1fr;
+    justify-content: center;
+
+}
+
+.productsContainer{
+    display: flex;
+    flex-flow: wrap;
+    gap: 15px;
+}
+
