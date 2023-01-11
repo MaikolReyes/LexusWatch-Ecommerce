@@ -2,37 +2,11 @@ import { getFirestore, } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import { setProductById, getProductsByCategory, deleteProductById } from '../queries/products';
+import { getProductsByCategory } from '../queries/products';
 
 const Category = () => {
     const { id } = useParams();
     const [products, setProducts] = useState([]);
-
-    // useEffect(() => {
-    //   const db = getFirestore();
-    //   const data = {
-    //     name: "Arena para gatos",
-    //     description: "Descripcion de las plantas"
-    //   }
-    //   setProductById(db, data, '123123asd')
-    //     .then((data) => {
-    //       console.log('data:', data)
-    //     })
-    //     .catch((error) => {
-    //       console.log('error:', error)
-    //     })
-    // }, [])
-
-    useEffect(() => {
-        const db = getFirestore();
-        deleteProductById(db, '123123asd')
-            .then((data) => {
-                console.log('data:', data)
-            })
-            .catch((error) => {
-                console.log('error:', error)
-            })
-    }, [])
 
     useEffect(() => {
         const db = getFirestore();

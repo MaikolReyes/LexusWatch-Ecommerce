@@ -1,43 +1,148 @@
-.navbar{
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Noto+Sans:wght@500&family=Raleway:wght@600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.navbar {
     height: 60px;
 }
 
-.logo{
-margin-top: 10px;
+.logo {
+    margin-top: 10px;
 }
 
-.navbar-nav{
+.navbar-nav {
     gap: 20px;
 }
 
-.navbar-collapse{
+.navbar-collapse {
     display: flex;
     justify-content: space-between;
 }
 
-.nav-link{
+.nav-link {
     color: white;
 }
 
-.nav-link:hover{
-    color: aquamarine;
+.nav-link:hover {
+    color: blue;
 }
 
-.navbar-brand{
+.navbar-brand {
     color: white;
 }
 
-.card{
+.card {
     width: 12rem;
     display: grid;
-    grid-template-columns: 1fr,1fr,1fr;
+    grid-template-columns: 1fr, 1fr, 1fr;
     justify-content: center;
-
+    font-family: 'Noto Sans', sans-serif;
 }
 
-.productsContainer{
+.productsContainer {
     display: flex;
     flex-flow: wrap;
     gap: 15px;
 }
 
+.card {
+    width: 18rem;
+    text-align: center;
+}
+
+.image {
+    width: 13rem;
+    height: 13rem;
+}
+
+.position {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+    margin-top: 50px;
+}
+
+.category {
+  text-decoration: none;
+    color: black;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.categorias-text {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    list-style-type: none;
+    gap: 10px;
+}
+
+
+.footer-container {
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.pie {
+    justify-content: space-around;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.texto-footer {
+    text-decoration: none;
+    color: #d3d3d3;
+
+}
+
+.redes {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+}
+
+.creditos {
+    font-size: 0.8rem;
+    text-align: center;
+    color: #d3d3d3;
+    margin-top: 40px;
+}
+
+
+
+.image-product{
+    width: 20rem;
+    height: 20rem;
+}
+
+.position-product{
+    display: flex;
+    justify-content: start;
+}
+
+.card-body{
+    display: inline-block;
+}
+
+.background{
+    background-image: url(./img/background.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    box-shadow: 5px 4px 5px rgb(184, 184, 184);
+}
+
+.textPrincipal{
+    color: white;
+    align-items: center;
+    font-family: 'Noto Sans', sans-serif;
+}

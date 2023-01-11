@@ -1,6 +1,6 @@
 import { collection, doc, getDoc, getDocs, setDoc, where, query, deleteDoc } from 'firebase/firestore';
 
-const PRODUCT_COLLECTION = 'products';
+const PRODUCT_COLLECTION = 'Products';
 
 export const getAllProducts = (db) => {
   const collectionRef = collection(db, PRODUCT_COLLECTION);
@@ -21,7 +21,7 @@ export const getAllProducts = (db) => {
 }
 
 export const getProductById = (db, id) => {
-  const documentRef = doc(db, 'products', id);
+  const documentRef = doc(db, 'Products', id);
   return getDoc(documentRef)
     .then((dataFB) => {
       if(dataFB.exists){
@@ -59,7 +59,7 @@ export const setProductById = (db, data, id=null) => {
   if (id) {
     tempId = id;
   } else {
-    tempId = `product-${Math.random()}`
+    tempId = `Product-${Math.random()}`
   }
   return setDoc(doc(db, PRODUCT_COLLECTION, tempId), data)
     .then((data) => {

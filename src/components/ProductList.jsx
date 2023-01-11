@@ -1,12 +1,11 @@
 import { getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllCategories } from '../queries/categories';
 import { getAllProducts } from '../queries/products';
+import Main from '../layout/Main'
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const db = getFirestore();
@@ -16,47 +15,31 @@ const ProductList = () => {
       })
   }, []);
 
-  useEffect(() => {
-    const db = getFirestore();
-    getAllCategories(db)
-      .then((item) => {
-        setCategories(item)
-      })
-  }, []);
-
   const renderProducts = () => (
-    products?.map(item => (
-      <div className='product' key={item.id}>
-        {item.image && <img alt="imagen" src={item.image} />}
-        <h2>{item.name}</h2>
-        <p>{item.description}</p>
-        <Link to={`/product/${item.id}`}> Ver detalle </Link>
+    <>
+
+      <div className='position'>
+
+        {products?.map(item => (
+          <div className='card' key={item.id}>
+            {item.images && <img alt="imagen" className='image' src={item.images} />}
+            <div className='card-body'>
+              <h5 className='card-title'>{item.name}</h5>
+              <p className='card-stock'>Stock Disponible: {item.stock}</p>
+              <Link className='btn btn-primary' to={`/product/${item.id}`}> Ver detalle </Link>
+            </div>
+          </div>
+        ))}
       </div>
-    ))
+    </>
   )
 
-  const renderCategories = () => (
-
-    categories?.map(item => (
-      
-<>
-        return (
-
-        <ul>
-          <Link to={`/category/${item.id}`}>
-            <li key={item?.id}>{item?.name}</li>
-          </Link>
-        </ul>
-
-
-        <h3>Acá va a ir la product list</h3>
-        {renderCategories()}
-        {renderProducts()}
-      </>
-
-    )))
+  return (
+    <>
+      {<Main />}
+      {renderProducts()}
+    </>
+  )
 }
-
-
 
 export default ProductList;
