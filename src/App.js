@@ -8,24 +8,27 @@ import Footer from './layout/Footer'
 import ProductList from "./components/ProductList";
 import Product from './components/Product';
 import Category from './components/Category';
-import Cart from './components/CartWidget'
+import Cart  from "./components/Cart";
+import CartProvider from './context/CartContext';
 
 
 const App = () => {
 
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-
-        <Routes>
-          <Route exact path="/" element={<ProductList />} />
-          <Route path="product/:id" element={<Product />} />
-          <Route path="category/:id" element={<Category />} />
-          <Route path="cart" element={<Cart />} />
-        </Routes>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<ProductList />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/category/:id" element={<Category />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
       <Footer />
+
     </>
   )
 }

@@ -6,7 +6,6 @@ import logo from '../img/lexus.png';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -52,16 +51,12 @@ const Navbar = () => {
                             </Link>
 
                             <li class="nav-item  dropdown ">
-                                <Link class="nav-link  dropdown-toggle" to='item' data-bs-toggle="dropdown"
+                                <Link class="nav-link  dropdown-toggle" data-bs-toggle="dropdown"
                                     aria-expanded="false">Marcas</Link>
-                                <ul class="nav-item dropdown-menu">
+                                <ul className="nav-item dropdown-menu">
                                     {renderCategories()}
                                 </ul>
                             </li>
-
-                            <Link className='nav-link' to='category'>
-                                <li className='nav-item'>Contacto  </li>
-                            </Link>
 
                             <li className='nav-item'>
                                 <Link className='nav-link' to='cart'>

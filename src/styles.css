@@ -7,6 +7,10 @@
     list-style-type: none;
 }
 
+.categorias-text a{
+    text-decoration: none;
+}
+
 .navbar {
     height: 60px;
 }
@@ -90,6 +94,7 @@
     color: white;
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-top: 50px;
 }
 
 .pie {
@@ -126,7 +131,9 @@
 
 .position-product{
     display: flex;
-    justify-content: start;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .card-body{
@@ -145,4 +152,41 @@
     color: white;
     align-items: center;
     font-family: 'Noto Sans', sans-serif;
+}
+
+.counter{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+.card-body-product{
+
+    flex-direction: column;
+    justify-items: center;
+    gap: 10px;
+}
+
+.card-title-product{
+    margin-top: 20px;
+}
+
+.formValidation{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 10px black;
+
+}
+
+.fieldsetValidation{
+    gap: 30px;
+}
+
+.carritoElement{
+    display: flex;
+    gap: 30px;
+    flex-wrap:wrap;
 }
