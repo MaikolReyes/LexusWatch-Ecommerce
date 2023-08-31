@@ -1,25 +1,13 @@
-import React from "react";
-import logoTwitter from '../img/twitter.png';
-import logoFacebook from '../img/facebook.png'
-import logoInstagram from '../img/instagram.png'
 
-const Footer = () => {
+export const Footer = () => {
     return (
-        <footer class="footer-container bg-dark">
-            <div class="pie d-flex">
-                <a class="texto-footer" target="_blank" href="https://www.instagram.com/">
-                    <img class="redes" src={logoInstagram} alt="Instagram" />Instagram</a>
-                <a class="texto-footer" target="_blank" href="https://twitter.com/home">
-                    <img class="redes" src={logoTwitter} alt="twitter" />Twitter</a>
-                <a class="texto-footer" target="_blank" href="https://www.facebook.com/">
-                    <img class="redes" src={logoFacebook} alt="facebook" />Facebook </a>
-
+        <footer className="footer-container bg-dark">
+            <div className="pie d-flex">
+                <a className="texto-footer" href="https://www.instagram.com/"><i class="fa-brands fa-square-instagram"></i>Instagram</a>
+                <a className="texto-footer" href="https://twitter.com/home"><i class="fa-brands fa-square-twitter"></i>Twitter</a>
+                <a className="texto-footer" href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i>Facebook</a>
             </div>
-            <h3 class="creditos">Copyright © 2022 Todos los derechos reservados por Maikol Reyes</h3>
-
+            <h3 className="creditos">Copyright © 2022 Todos los derechos reservados por Maikol Reyes</h3>
         </footer>
     )
-
 }
-
-export default Footer;

@@ -2,9 +2,9 @@ import { getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProducts } from '../queries/products';
-import Main from '../layout/Main'
+import { Main } from '../layout';
+export const ProductList = () => {
 
-const ProductList = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -15,31 +15,22 @@ const ProductList = () => {
       })
   }, []);
 
-  const renderProducts = () => (
+  return (
     <>
-
+      <Main />
       <div className='position'>
-
-        {products?.map(item => (
-          <div className='card' key={item.id}>
-            {item.images && <img alt="imagen" className='image' src={item.images} />}
-            <div className='card-body'>
-              <h5 className='card-title'>{item.name}</h5>
-              <p className='card-stock'>Stock Disponible: {item.stock}</p>
-              <Link className='btn btn-primary' to={`/product/${item.id}`}> Ver detalle </Link>
+        {
+          products?.map(({ id, images, name, stock }) => (
+            <div className='card' key={id}>
+              {images && <img alt="imagen" className='image' src={images} />}
+              <div className='card-body'>
+                <h5 className='card-title'>{name}</h5>
+                <p className='card-stock'>Stock Disponible: {stock}</p>
+                <Link className='btn btn-primary' to={`/product/${id}`}> Comprar </Link>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </>
   )
-
-  return (
-    <>
-      {<Main />}
-      {renderProducts()}
-    </>
-  )
 }
-
-export default ProductList;

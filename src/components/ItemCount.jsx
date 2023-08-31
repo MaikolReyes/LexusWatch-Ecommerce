@@ -14,7 +14,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     const restar = () => {
         if (ItemCount > 1) {
             setItemCount(ItemCount - 1);
-        } 
+        }
         else {
             setItemCount(stock)
         }
@@ -23,11 +23,11 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     return (
         <div className="counterContainer">
             <div className="counter">
-                <div className="itemCountButton" onClick={restar}><h4>-</h4></div>
+                <button className="btn btn-primary" onClick={restar}><h4>-</h4></button>
                 <div className="itemCount">{ItemCount}</div>
-                <div className="itemCountButton" onClick={sumar}><h4>+</h4></div>
+                <button className="btn btn-primary" onClick={sumar}><h4>+</h4></button>
             </div>
-            <button className="btn btn-primary" onClick={() => onAdd(ItemCount)}>Agregar al carrito</button>
+            <button className="btn btn-primary" onDoubleClick={''} onClick={() => onAdd(ItemCount)}>Agregar al carrito</button>
         </div>
     );
 }

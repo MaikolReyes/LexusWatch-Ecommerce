@@ -2,20 +2,19 @@ import { collection, getDocs } from "@firebase/firestore";
 
 const CATEGORY_COLLECTION = 'categories';
 
-export const getAllCategories = (db) => {
+export const getAllCategories = async (db) => {
   const collectionRef = collection(db, CATEGORY_COLLECTION);
-  return getDocs(collectionRef)
-    .then((snapshot) => {
-      const categories = [];
-      snapshot?.docs?.forEach((item) => {
-        categories.push({
-          id: item.id,
-          ...item.data()
-        })
-      })
-      return categories;
-    })
-    .catch((error) => {
-      return error;
-    })
+  try {
+    const snapshot = await getDocs(collectionRef);
+    const categories = [];
+    snapshot?.docs?.forEach((item) => {
+      categories.push({
+        id: item.id,
+        ...item.data()
+      });
+    });
+    return categories;
+  } catch (error) {
+    return error;
+  }
 }

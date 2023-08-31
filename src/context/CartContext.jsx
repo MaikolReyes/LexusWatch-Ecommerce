@@ -1,9 +1,8 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { createContext, useState } from 'react';
 
-export const CartContext = React.createContext();
+export const CartContext = createContext();
 
-const CartProvider = ({ children }) => {
+export const CartProvider = ({ children }) => {
     const [productCartList, setProductCartList] = useState([])
 
     const isInCart = (idProducto) => {
@@ -65,5 +64,3 @@ const CartProvider = ({ children }) => {
         </CartContext.Provider>
     )
 }
-
-export default CartProvider;

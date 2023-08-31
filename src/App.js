@@ -1,16 +1,13 @@
-import React from "react";
-import './styles.css'
+// Router
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Layout 
-import Navbar from "./layout/Navbar";
-import Footer from './layout/Footer'
+import { Navbar, Footer } from './layout'
 // Components
-import ProductList from "./components/ProductList";
-import Product from './components/Product';
-import Category from './components/Category';
-import Cart  from "./components/Cart";
-import CartProvider from './context/CartContext';
-
+import { ProductList, Product, Category, Cart } from './components'
+// Provider
+import { CartProvider } from './context/CartContext';
+// Styles
+import './styles.css'
 
 const App = () => {
 

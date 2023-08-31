@@ -5,7 +5,7 @@ import { getProductById } from '../queries/products';
 import { CartContext } from "../context/CartContext";
 import ItemCount from "./ItemCount"
 
-const Product = () => {
+export const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const { addItem } = useContext(CartContext);
@@ -37,5 +37,3 @@ const Product = () => {
     </div>
   )
 }
-
-export default Product;

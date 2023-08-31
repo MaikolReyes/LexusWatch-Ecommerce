@@ -7,7 +7,7 @@
     list-style-type: none;
 }
 
-.categorias-text a{
+.categorias-text a {
     text-decoration: none;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .category {
-  text-decoration: none;
+    text-decoration: none;
     color: black;
     gap: 10px;
     display: flex;
@@ -124,55 +124,55 @@
 
 
 
-.image-product{
+.image-product {
     width: 20rem;
     height: 20rem;
 }
 
-.position-product{
+.position-product {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
     margin-top: 50px;
 }
 
-.card-body{
+.card-body {
     display: inline-block;
 }
 
-.background{
-    background-image: url(./img/background.webp);
+.background {
+    background-image: url(../src//img/background.webp);
+    height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
     box-shadow: 5px 4px 5px rgb(184, 184, 184);
 }
 
-.textPrincipal{
+.textPrincipal {
     color: white;
     align-items: center;
     font-family: 'Noto Sans', sans-serif;
 }
 
-.counter{
+.counter {
     display: flex;
     align-items: center;
     gap: 15px;
     justify-content: center;
 }
 
-.card-body-product{
+.card-body-product {
 
     flex-direction: column;
     justify-items: center;
     gap: 10px;
 }
 
-.card-title-product{
+.card-title-product {
     margin-top: 20px;
 }
 
-.formValidation{
+.formValidation {
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -181,12 +181,26 @@
 
 }
 
-.fieldsetValidation{
+.fieldsetValidation {
     gap: 30px;
 }
 
-.carritoElement{
+.carritoElement {
     display: flex;
+    justify-content: center;
     gap: 30px;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+
+.quantityProducts {
+    font-size: 15px;
+    color: white;
+}
+
+.elementoCentrado {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }

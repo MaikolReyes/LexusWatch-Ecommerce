@@ -1,6 +1,5 @@
-import React from "react";
 
-const Main = () => {
+export const Main = () => {
     return (
         <main>
             <div className="background">
@@ -12,4 +11,3 @@ const Main = () => {
 
 }
 
-export default Main;

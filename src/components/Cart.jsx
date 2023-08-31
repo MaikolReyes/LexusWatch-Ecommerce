@@ -1,32 +1,42 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
-import { collection, addDoc, getFirestore } from 'firebase/firestore';
+import { collection, addDoc, doc, getFirestore } from 'firebase/firestore';
 
-const Cart = () => {
+export const Cart = () => {
     const { productCartList, removeItem, clearCart, getTotalPrice } = useContext(CartContext);
-    const [orderId, setOrderId] = useState("");
+    const [orderId, setOrderId] = useState('');
+
+    const name = document.getElementById("name")
+    const surname = document.getElementById("surname")
+    const email = document.getElementById("email")
+    const number = document.getElementById("number")
 
     const sendOrder = (event) => {
+
         event.preventDefault();
+
         const order = {
             client: {
-                name: event.target[0].value,
-                surname: event.target[1].value,
-                email: event.target[2].value,
-                number: event.target[3].value,
+                name,
+                surname,
+                email,
+                number
             },
             items: productCartList,
             total: getTotalPrice(),
             date: new Date()
         }
+
         const db = getFirestore()
 
+        const queryRef = doc(collection(db, "orders"));
 
-        const queryRef = collection(db, "orders");
-        addDoc(queryRef, order).then(response => {
-            setOrderId(response.id);
+        addDoc(queryRef, order).then(resp => {
+            console.log('hola mundo')
         });
+
+
     }
 
     return (
@@ -34,17 +44,17 @@ const Cart = () => {
             {!orderId ?
                 <div>
                     <h2 className='carritoElement'>Carrito:</h2>
-                    <div className=' carritoElement'>
+                    <div className='carritoElement'>
                         {
-                            productCartList.map((item) => {
+                            productCartList.map(({ id, quantity, images, name, price, description }) => {
                                 return (
-                                    <div className='itemEnCarrito card' key={item.id}>
-                                        <p className='cantidad'>Cantidad De Items: {item.quantity}</p>
-                                        <img src={item.images} height="100px" className='producto' alt={item.description} />
-                                        <p className='producto'>{item.name}</p>
-                                        <p className='precio'>${item.price}</p>
+                                    <div className='itemEnCarrito card' key={id}>
+                                        <p className='cantidad'>Cantidad De Items: {quantity}</p>
+                                        <img src={images} height="100px" className='producto' alt={description} />
+                                        <p className='producto'>{name}</p>
+                                        <p className='precio'>${price}</p>
                                         <div className='removerButton'>
-                                            <button onClick={() => removeItem(item.id)} className='remover btn btn-danger'>Remover producto</button>
+                                            <button onClick={() => removeItem(id)} className='remover btn btn-danger'>Remover producto</button>
                                         </div>
                                     </div>
                                 )
@@ -58,29 +68,30 @@ const Cart = () => {
                                     <h3 className='carritoElement'>Total: ${getTotalPrice()}</h3>
                                     <button onClick={() => clearCart()} className='carritoElement btn btn-primary'>Vaciar carrito</button>
                                 </div>
+
+
                                 <div className='elementoCentrado'>
                                     <form className='formValidation' onSubmit={sendOrder}>
 
-                                        
                                         <fieldset className='fieldsetValidation'>
                                             <legend><strong>Enviar pedido:</strong></legend>
                                             <div>
-                                                <label for="nombre">Nombre:</label>
-                                                <input type="text" name="name" />
+                                                <label for="nombre" >Nombre:</label>
+                                                <input type="text" className='form-control' name="name" id='name' />
                                             </div>
                                             <div>
                                                 <label for="nombre">Apellido:</label>
-                                                <input type="text" name="surname" />
+                                                <input type="text" name="surname" className='form-control' id='surname' />
                                             </div>
                                             <div>
                                                 <label for="email">Email:</label>
-                                                <input type="email" name="email" />
+                                                <input type="email" name="email" className='form-control' id='email' />
                                             </div>
                                             <div>
                                                 <label for="numero">Número de telefono:</label>
-                                                <input type="number" name="number" />
+                                                <input type="number" name="number" className='form-control' id='number' />
                                             </div>
-                                            <input type="submit" value="Guardar orden" className="button" /> <input type="reset" value="Borrar" className="button" />
+                                            <input type="submit" value="Finalizar Compra" className="btn btn-primary" /> <input type="reset" value="Borrar" className="btn btn-primary" />
                                         </fieldset>
                                     </form>
                                 </div>
@@ -98,5 +109,3 @@ const Cart = () => {
         </div>
     )
 }
-
-export default Cart;
